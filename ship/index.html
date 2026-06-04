@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sentinela — vigilância orbital e rotas seguras em desastres. Dados de satélite que tiram pessoas do perigo."
+    />
+    <meta name="theme-color" content="#070D1A" />
+    <!-- Paint the deep-space background before anything else loads. -->
+    <style>
+      html { background-color: #070d1a; }
+    </style>
+    <!-- Sentinela favicon — orbital eye on deep space. -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='4' fill='%23070D1A'/%3E%3Ccircle cx='8' cy='8' r='5' fill='none' stroke='%2300E5FF' stroke-width='1.2'/%3E%3Ccircle cx='8' cy='8' r='1.8' fill='%2300E5FF'/%3E%3C/svg%3E"
+    />
+    <title>Sentinela — Vigilância Orbital · Rotas Seguras</title>
+
+    <!-- Design tokens, fonts, map and app styles (all local → works offline). -->
+    <link rel="stylesheet" href="vendor/theme.css" />
+    <link rel="stylesheet" href="vendor/fonts.css" />
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- The entire UI (header, pages, footer) is rendered by app.js. -->
+    <div id="root"></div>
+
+    <!--
+      OpenRouteService key. Copy env.example.js to env.js (git-ignored) and
+      paste your free key there. Without it, routing uses the offline fallback.
+    -->
+    <script src="env.js"></script>
+    <script src="vendor/leaflet/leaflet.js"></script>
+    <script src="js/app.js" defer></script>
+  </body>
+</html>

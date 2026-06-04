@@ -1,0 +1,388 @@
+/*
+ * Sentinela — Design Language Tokens
+ * tier:    design-language
+ * purpose: web-app
+ * theme:   dark-primary (deep space)
+ * version: 1.0.0
+ * date:    2026-06-04
+ *
+ * Usage in vanilla HTML/CSS/JS (file:// compatible):
+ *   <link rel="stylesheet" href="theme.css">
+ *
+ *   Then in your CSS:
+ *   background: var(--color-bg-base);
+ *   color: var(--color-text-primary);
+ *
+ * Font loading (add to <head> before this stylesheet):
+ *   <link rel="preconnect" href="https://fonts.googleapis.com">
+ *   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ *   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+ *
+ * Base assumption: html { font-size: 62.5%; } so 1rem = 10px.
+ * This file does NOT set html font-size — place it in your global reset.
+ *
+ * Reduced-motion overrides are at the bottom of this file.
+ */
+
+/* ==========================================================================
+   1. IDENTITY — Raw brand values. Reference only; use semantic tokens in code.
+   ========================================================================== */
+
+:root {
+  --void:            #070D1A;
+  --deep-atlas:      #0D1F3C;
+  --rescue-cyan:     #00E5FF;
+  --sentinel-amber:  #FFB300;
+  --orbital-blue:    #1565C0;
+}
+
+
+/* ==========================================================================
+   2. COLOR — Semantic tokens
+   ========================================================================== */
+
+:root {
+  /* --- Backgrounds --- */
+  --color-bg-base:           #070D1A;
+  --color-bg-surface:        #0D1F3C;
+  --color-bg-surface-raised: #0F2645;
+  --color-bg-overlay-low:    rgba(21, 101, 192, 0.08);
+  --color-bg-overlay-mid:    rgba(21, 101, 192, 0.16);
+  --color-bg-overlay-high:   rgba(21, 101, 192, 0.32);
+  --color-bg-glass:          rgba(7, 13, 26, 0.80);
+
+  /* --- Text --- */
+  /* text-primary:   14.1:1 AAA on bg-base, 11.4:1 AAA on bg-surface  */
+  /* text-secondary:  5.1:1 AA  on bg-base,  4.1:1 AA  on bg-surface  */
+  /* text-accent:    12.8:1 AAA on bg-base, 10.3:1 AAA on bg-surface  */
+  --color-text-primary:   #E8F0FE;
+  --color-text-secondary: #90A4C4;
+  --color-text-disabled:  #455A7A;  /* 2.8:1 — decorative labels only */
+  --color-text-accent:    #00E5FF;
+  --color-text-inverse:   #070D1A;  /* on filled cyan / amber buttons */
+
+  /* --- Borders --- */
+  --color-border-subtle:  rgba(144, 164, 196, 0.12);
+  --color-border-default: rgba(144, 164, 196, 0.24);
+  --color-border-strong:  rgba(144, 164, 196, 0.48);
+
+  /* --- Accent (Rescue Cyan) — general interactive & safe-route highlight ---
+     Sentinel Amber is NOT an accent; it is a risk/warning color only.        */
+  --color-accent:        #00E5FF;
+  --color-accent-dim:    #00B8D4;
+  --color-accent-subtle: rgba(0, 229, 255, 0.12);
+
+  /* --- Interactive (Orbital Blue) --- */
+  --color-interactive:       #1565C0;
+  --color-interactive-hover: #1976D2;
+
+  /* --- Risk layers — semantically locked, do not repurpose --- */
+  --color-risk-flood:           #1E88E5;
+  --color-risk-flood-dim:       rgba(30, 136, 229, 0.20);
+  --color-risk-fire:            #FFB300;
+  --color-risk-fire-dim:        rgba(255, 179, 0, 0.20);
+  --color-risk-landslide:       #8D6E63;
+  --color-risk-landslide-dim:   rgba(141, 110, 99, 0.20);
+  --color-risk-danger:          #E53935;
+  --color-risk-danger-dim:      rgba(229, 57, 53, 0.20);
+
+  /* --- State --- */
+  --color-safe:          #00E5FF;  /* active safe route, shelter pin */
+  --color-safe-alt:      #00C853;  /* arrival confirmation, all-clear */
+  --color-safe-alt-dim:  rgba(0, 200, 83, 0.15);
+  --color-warning:       #FFB300;  /* non-critical badge, caution zone */
+  --color-warning-dim:   rgba(255, 179, 0, 0.15);
+  --color-critical:      #E53935;  /* critical badge, route fully blocked */
+  --color-critical-dim:  rgba(229, 57, 53, 0.15);
+  --color-nominal:       #00E5FF;  /* SISTEMA NOMINAL status */
+}
+
+
+/* ==========================================================================
+   3. TYPOGRAPHY — Font families, scale, weights, leading, tracking
+   ========================================================================== */
+
+:root {
+  /* --- Families --- */
+  --font-display: 'Rajdhani', 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-body:    'IBM Plex Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'IBM Plex Mono', 'Roboto Mono', 'Courier New', monospace;
+
+  /* --- Type scale (rem; assumes html font-size: 62.5% so 1rem = 10px) --- */
+  --text-2xs:  1.0rem;   /*  10px */
+  --text-xs:   1.1rem;   /*  11px */
+  --text-sm:   1.2rem;   /*  12px */
+  --text-base: 1.4rem;   /*  14px */
+  --text-md:   1.6rem;   /*  16px */
+  --text-lg:   1.8rem;   /*  18px */
+  --text-xl:   2.0rem;   /*  20px */
+  --text-2xl:  2.4rem;   /*  24px */
+  --text-3xl:  3.2rem;   /*  32px */
+  --text-4xl:  4.8rem;   /*  48px */
+  --text-5xl:  6.4rem;   /*  64px */
+  --text-6xl:  7.2rem;   /*  72px */
+
+  /* --- Weights --- */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* --- Line heights --- */
+  --leading-none:    1.0;
+  --leading-tight:   1.2;
+  --leading-snug:    1.4;
+  --leading-normal:  1.6;
+  --leading-relaxed: 1.8;
+
+  /* --- Letter spacing --- */
+  --tracking-tight:   -0.01em;
+  --tracking-normal:   0em;
+  --tracking-wide:     0.05em;
+  --tracking-wider:    0.10em;
+  --tracking-widest:   0.15em;
+}
+
+
+/* ==========================================================================
+   4. SPACING — 4px base grid
+   ========================================================================== */
+
+:root {
+  --space-0:    0;
+  --space-px:   0.1rem;   /*  1px */
+  --space-0-5:  0.2rem;   /*  2px */
+  --space-1:    0.4rem;   /*  4px */
+  --space-1-5:  0.6rem;   /*  6px */
+  --space-2:    0.8rem;   /*  8px */
+  --space-2-5:  1.0rem;   /* 10px */
+  --space-3:    1.2rem;   /* 12px */
+  --space-4:    1.6rem;   /* 16px */
+  --space-5:    2.0rem;   /* 20px */
+  --space-6:    2.4rem;   /* 24px */
+  --space-7:    2.8rem;   /* 28px */
+  --space-8:    3.2rem;   /* 32px */
+  --space-10:   4.0rem;   /* 40px */
+  --space-12:   4.8rem;   /* 48px */
+  --space-16:   6.4rem;   /* 64px */
+  --space-20:   8.0rem;   /* 80px */
+  --space-24:   9.6rem;   /* 96px */
+}
+
+
+/* ==========================================================================
+   5. BORDER RADIUS
+   ========================================================================== */
+
+:root {
+  --rounded-none: 0;
+  --rounded-sm:   0.2rem;   /*  2px */
+  --rounded-base: 0.4rem;   /*  4px */
+  --rounded-md:   0.6rem;   /*  6px */
+  --rounded-lg:   0.8rem;   /*  8px */
+  --rounded-xl:   1.2rem;   /* 12px */
+  --rounded-2xl:  1.6rem;   /* 16px */
+  --rounded-full: 9999px;
+}
+
+
+/* ==========================================================================
+   6. ELEVATION — Box shadows
+   ========================================================================== */
+
+:root {
+  --shadow-0:          none;
+  --shadow-1:          0 1px 3px rgba(7, 13, 26, 0.60);
+  --shadow-2:          0 2px 8px rgba(7, 13, 26, 0.70);
+  --shadow-3:          0 4px 16px rgba(7, 13, 26, 0.80);
+  --shadow-4:          0 8px 32px rgba(7, 13, 26, 0.90);
+  --shadow-glow-cyan:  0 0 12px rgba(0, 229, 255, 0.30);
+  --shadow-glow-amber: 0 0 12px rgba(255, 179, 0, 0.30);
+  --shadow-glow-red:   0 0 12px rgba(229, 57, 53, 0.30);
+}
+
+
+/* ==========================================================================
+   7. MOTION — Durations and easings
+   ========================================================================== */
+
+:root {
+  /* --- Durations --- */
+  --duration-instant: 0ms;
+  --duration-fast:    100ms;
+  --duration-normal:  200ms;
+  --duration-slow:    300ms;
+  --duration-slower:  500ms;
+  --duration-radar:   3000ms;   /* Full radar sweep rotation */
+  --duration-pulse:   1500ms;   /* Alert pulse expand-and-fade cycle */
+  --duration-route:   800ms;    /* Route line draw-on animation */
+
+  /* --- Easings --- */
+  --ease-linear:  linear;
+  --ease-in:      cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:     cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out:  cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-radar:   linear;
+  --ease-route:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-pulse:   cubic-bezier(0, 0, 0.2, 1);
+}
+
+
+/* ==========================================================================
+   8. CANONICAL ANIMATION KEYFRAMES
+   ========================================================================== */
+
+/*
+ * Radar sweep — rotate the sweep line 360 degrees.
+ * Apply to a conic-gradient overlay or SVG line element.
+ * Usage: animation: sentinela-radar-sweep var(--duration-radar) var(--ease-radar) infinite;
+ */
+@keyframes sentinela-radar-sweep {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/*
+ * Alert pulse — concentric ring expands from marker and fades.
+ * Apply to a ::after pseudo-element positioned absolutely over the marker.
+ * Usage: animation: sentinela-alert-pulse var(--duration-pulse) var(--ease-pulse) infinite;
+ */
+@keyframes sentinela-alert-pulse {
+  0%   { transform: scale(1);   opacity: 0.80; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/*
+ * Route draw-on — SVG stroke-dashoffset technique.
+ * Set stroke-dasharray and stroke-dashoffset to the path length,
+ * then animate dashoffset to 0.
+ * Usage (JS sets --route-length on the element):
+ *   animation: sentinela-route-draw var(--duration-route) var(--ease-route) forwards;
+ * CSS must set:
+ *   stroke-dasharray: var(--route-length, 1000);
+ *   stroke-dashoffset: var(--route-length, 1000);
+ */
+@keyframes sentinela-route-draw {
+  from { stroke-dashoffset: var(--route-length, 1000); }
+  to   { stroke-dashoffset: 0; }
+}
+
+/*
+ * Arrival confirmation — shelter pin micro-bounce.
+ * Usage: animation: sentinela-arrive 400ms var(--ease-spring) forwards;
+ */
+@keyframes sentinela-arrive {
+  0%   { transform: scale(0.8); }
+  60%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/*
+ * Fade in — generic element entrance.
+ * Usage: animation: sentinela-fade-in var(--duration-slow) var(--ease-out) forwards;
+ */
+@keyframes sentinela-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+
+/* ==========================================================================
+   9. REDUCED MOTION OVERRIDES
+   Respects prefers-reduced-motion: reduce.
+   Radar pauses, pulse becomes static border, route appears instantly.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 0ms;
+    --duration-fast:    0ms;
+    --duration-normal:  0ms;
+    --duration-slow:    0ms;
+    --duration-slower:  0ms;
+    --duration-radar:   0ms;
+    --duration-pulse:   0ms;
+    --duration-route:   0ms;
+  }
+
+  /*
+   * Pause radar — animation still exists in markup but is frozen.
+   * A "DADOS AO VIVO" text label should confirm sensor is active.
+   */
+  [data-animation="radar-sweep"] {
+    animation-play-state: paused !important;
+  }
+
+  /*
+   * Replace pulse ring with a static colored border.
+   * The semantic color still communicates urgency; motion is gone.
+   */
+  [data-animation="alert-pulse"] {
+    animation: none !important;
+    border: 2px solid var(--color-risk-fire);
+    border-radius: var(--rounded-full);
+  }
+
+  [data-animation="alert-pulse"][data-severity="danger"] {
+    border-color: var(--color-risk-danger);
+  }
+
+  /*
+   * Route draw-on: appear immediately at full opacity.
+   */
+  [data-animation="route-draw"] {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+    opacity: 1 !important;
+  }
+
+  /*
+   * Suppress glow shadows — they rely on blur which can be distracting
+   * for motion-sensitive users even when not animated.
+   */
+  * {
+    --shadow-glow-cyan:  none;
+    --shadow-glow-amber: none;
+    --shadow-glow-red:   none;
+  }
+}
+
+
+/* ==========================================================================
+   10. CONVENIENCE UTILITY CLASSES
+   Optional. Remove if you prefer utility-free vanilla CSS.
+   ========================================================================== */
+
+/* Background roles */
+.bg-base           { background-color: var(--color-bg-base); }
+.bg-surface        { background-color: var(--color-bg-surface); }
+.bg-surface-raised { background-color: var(--color-bg-surface-raised); }
+.bg-glass          { background-color: var(--color-bg-glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+
+/* Text roles */
+.text-primary   { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-disabled  { color: var(--color-text-disabled); }
+.text-accent    { color: var(--color-text-accent); }
+.text-inverse   { color: var(--color-text-inverse); }
+
+/* Risk state badges — background + text */
+.badge-flood     { background-color: var(--color-risk-flood-dim);     color: var(--color-risk-flood);     border: 1px solid var(--color-risk-flood); }
+.badge-fire      { background-color: var(--color-risk-fire-dim);      color: var(--color-risk-fire);      border: 1px solid var(--color-risk-fire); }
+.badge-landslide { background-color: var(--color-risk-landslide-dim); color: var(--color-risk-landslide); border: 1px solid var(--color-risk-landslide); }
+.badge-danger    { background-color: var(--color-risk-danger-dim);    color: var(--color-risk-danger);    border: 1px solid var(--color-risk-danger); }
+.badge-safe      { background-color: var(--color-accent-subtle);      color: var(--color-safe);           border: 1px solid var(--color-safe); }
+.badge-warning   { background-color: var(--color-warning-dim);        color: var(--color-warning);        border: 1px solid var(--color-warning); }
+.badge-critical  { background-color: var(--color-critical-dim);       color: var(--color-critical);       border: 1px solid var(--color-critical); }
+.badge-nominal   { background-color: var(--color-accent-subtle);      color: var(--color-nominal);        border: 1px solid var(--color-nominal); }
+
+/* Font roles */
+.font-display { font-family: var(--font-display); }
+.font-body    { font-family: var(--font-body); }
+.font-mono    { font-family: var(--font-mono); }
+
+/* Glow effects */
+.glow-cyan  { box-shadow: var(--shadow-glow-cyan); }
+.glow-amber { box-shadow: var(--shadow-glow-amber); }
+.glow-red   { box-shadow: var(--shadow-glow-red); }

@@ -6,6 +6,8 @@ dist/
 
 .env
 .env.local
+# Vanilla ship/ runtime secret (ORS key) — keep env.example.js, ignore env.js
+ship/env.js
 *.log
 .DS_Store
 coverage/
