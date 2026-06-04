@@ -1,0 +1,38 @@
+SENTINELA — Vigilância Orbital · Rotas Seguras
+FIAP Global Solution 2026/1 — 1º Ano Engenharia de Software
+
+GRUPO: 11
+
+INTEGRANTES:
+- Guilherme Oliveira Rodrigues — RM: <PREENCHER_RM>
+
+VÍDEO PITCH (até 3 min):
+<PREENCHER_LINK_DO_VIDEO>   (YouTube / Google Drive / Vimeo)
+
+----------------------------------------------------------------------
+SOBRE O PROTÓTIPO
+
+Sentinela transforma dados de observação da Terra por satélite em ROTAS
+DE FUGA SEGURAS durante desastres naturais (enchentes, queimadas,
+deslizamentos). Conecta a economia espacial a um problema real na Terra.
+ODS 11 (meta 11.5) e ODS 13 (meta 13.1).
+
+COMO EXECUTAR
+- Abra o arquivo index.html em um navegador moderno (duplo-clique).
+- Não requer servidor nem instalação — HTML + CSS + JavaScript puro.
+- Com internet, usa dados reais (NASA EONET, OpenStreetMap, OpenRouteService).
+- A rota que evita zonas de risco usa o OpenRouteService. Para ativá-la,
+  copie env.example.js para env.js e cole sua chave gratuita do
+  OpenRouteService (https://openrouteservice.org/dev). Sem a chave, o
+  restante do site funciona normalmente.
+
+TELAS (6, navegáveis)
+1. Início — problema, proposta e como funciona.
+2. Alertas globais — eventos naturais reais ao vivo da NASA EONET.
+3. Central de monitoramento — mapa com zonas de risco e abrigos reais.
+4. Pedir resgate — formulário do cidadão + rota segura no mapa.
+5. Chamados — acompanhamento de status (Pendente → Em rota → Concluído).
+6. Sobre — fontes de dados e ODS.
+
+TECNOLOGIAS: HTML5, CSS3, JavaScript (ES). Biblioteca de mapa Leaflet
+(carregada localmente, em vendor/). Dados via fetch a APIs públicas.
