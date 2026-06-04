@@ -4,7 +4,11 @@ FIAP Global Solution 2026/1 — 1º Ano Engenharia de Software
 GRUPO: 11
 
 INTEGRANTES:
-- Guilherme Oliveira Rodrigues — RM: <PREENCHER_RM>
+- August Aguiar Gruber
+- Rogerio Gajewski Piatek dos Santos
+- Vladimir Leal Sposito de Oliveira
+- Guilherme Oliveira Rodrigues
+- Nicole Rodrigues da Silva Oliveira
 
 VÍDEO PITCH (até 3 min):
 <PREENCHER_LINK_DO_VIDEO>   (YouTube / Google Drive / Vimeo)
