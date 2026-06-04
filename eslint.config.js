@@ -26,6 +26,10 @@ export default [
       '**/*.rtk.tsx',
       '**/*.zustand.ts',
       '**/*.zustand.tsx',
+      // The vanilla FIAP deliverable is a separate hand-written artifact
+      // (browser globals, vendored Leaflet) with its own conventions — it
+      // is not part of the React/TS source and must not be linted by this config.
+      'ship/**',
     ],
   },
 
