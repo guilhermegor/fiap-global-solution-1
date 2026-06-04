@@ -1,0 +1,19 @@
+node_modules/
+dist/
+
+# Git-diff offline-sync exports (present only when scaffolded without GitHub)
+/git_diffs/
+
+.env
+.env.local
+*.log
+.DS_Store
+coverage/
+.nyc_output/
+
+# Playwright — keep test specs and committed visual baselines (*-snapshots/),
+# ignore generated reports and run artifacts.
+/playwright-report/
+/test-results/
+/blob-report/
+/playwright/.cache/
