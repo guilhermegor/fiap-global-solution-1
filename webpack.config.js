@@ -1,3 +1,4 @@
+import fs from 'fs';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -8,6 +9,28 @@ import webpack from 'webpack';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const isDevelopment = process.env.NODE_ENV !== 'production';
+
+// Minimal, zero-dependency .env reader. Secrets (the OpenRouteService key)
+// live in a git-ignored .env; .env.example documents the shape. A real
+// process.env value (e.g. from CI) always wins over the file.
+function readEnvFile(name) {
+  const file = path.resolve(__dirname, name);
+  if (!fs.existsSync(file)) return {};
+  return Object.fromEntries(
+    fs
+      .readFileSync(file, 'utf8')
+      .split('\n')
+      .map((line) => line.trim())
+      .filter((line) => line && !line.startsWith('#'))
+      .map((line) => {
+        const eq = line.indexOf('=');
+        return [line.slice(0, eq).trim(), line.slice(eq + 1).trim()];
+      }),
+  );
+}
+
+const fileEnv = readEnvFile('.env');
+const orsApiKey = process.env.ORS_API_KEY || fileEnv.ORS_API_KEY || '';
 
 // GitHub Pages serves project sites under `/<repo-name>/`. Set
 // PUBLIC_PATH (e.g. via the deploy workflow) to point webpack at the
@@ -90,6 +113,10 @@ export default {
     // correctly under GitHub Pages's /<repo>/ project-site URL.
     new webpack.DefinePlugin({
       'process.env.PUBLIC_PATH': JSON.stringify(publicPath),
+      // Inline the (git-ignored) OpenRouteService key at build time so it
+      // never has to be hard-coded in source. Empty string when unset —
+      // the app then falls back to the offline simulation.
+      'process.env.ORS_API_KEY': JSON.stringify(orsApiKey),
     }),
     !isDevelopment && new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
     isDevelopment && new ReactRefreshWebpackPlugin(),

@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Inline SVG favicon (data URI) — avoids a 404 with no extra asset
-         pipeline. The scaffold has no CopyWebpackPlugin, so a public/
-         favicon file would not be emitted to dist/. Replace with your
-         own brand mark when ready. -->
+    <meta
+      name="description"
+      content="Sentinela — vigilância orbital e rotas seguras em desastres. Dados de satélite que tiram pessoas do perigo."
+    />
+    <meta name="theme-color" content="#070D1A" />
+    <!-- Deep-space background painted before the bundle paints, to avoid
+         a white flash on load (the app is dark-primary). -->
+    <style>
+      html { background-color: #070d1a; }
+    </style>
+    <!-- Sentinela favicon — orbital eye (cyan ring + pupil) on deep space. -->
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='4' fill='%23111827'/%3E%3Ccircle cx='8' cy='8' r='3' fill='%23ffffff'/%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='4' fill='%23070D1A'/%3E%3Ccircle cx='8' cy='8' r='5' fill='none' stroke='%2300E5FF' stroke-width='1.2'/%3E%3Ccircle cx='8' cy='8' r='1.8' fill='%2300E5FF'/%3E%3C/svg%3E"
     />
-    <title>App</title>
+    <!-- Brand typefaces are self-hosted via @fontsource (imported in
+         index.tsx) — no Google CDN request, and they load offline. -->
+    <title>Sentinela — Vigilância Orbital · Rotas Seguras</title>
   </head>
   <body>
     <div id="root"></div>

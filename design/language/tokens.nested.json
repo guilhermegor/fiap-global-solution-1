@@ -1,0 +1,199 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$metadata": {
+    "name": "Sentinela",
+    "version": "1.0.0",
+    "date": "2026-06-04",
+    "tier": "design-language",
+    "purpose": "web-app",
+    "theme": "dark-primary",
+    "shape": "nested",
+    "note": "Nested W3C Design Token Community Group format. Compatible with Style Dictionary, Token Pipeline, and Figma Tokens plugin."
+  },
+
+  "color": {
+    "$description": "All color tokens. identity = raw brand values. Never reference identity tokens in component code — use semantic tokens.",
+
+    "identity": {
+      "void":           { "$value": "#070D1A",  "$type": "color" },
+      "deep-atlas":     { "$value": "#0D1F3C",  "$type": "color" },
+      "rescue-cyan":    { "$value": "#00E5FF",  "$type": "color" },
+      "sentinel-amber": { "$value": "#FFB300",  "$type": "color" },
+      "orbital-blue":   { "$value": "#1565C0",  "$type": "color" }
+    },
+
+    "bg": {
+      "$description": "Background and surface tokens.",
+      "base":           { "$value": "#070D1A",                   "$type": "color" },
+      "surface":        { "$value": "#0D1F3C",                   "$type": "color" },
+      "surface-raised": { "$value": "#0F2645",                   "$type": "color" },
+      "overlay-low":    { "$value": "rgba(21, 101, 192, 0.08)",  "$type": "color" },
+      "overlay-mid":    { "$value": "rgba(21, 101, 192, 0.16)",  "$type": "color" },
+      "overlay-high":   { "$value": "rgba(21, 101, 192, 0.32)",  "$type": "color" },
+      "glass":          { "$value": "rgba(7, 13, 26, 0.80)",     "$type": "color" }
+    },
+
+    "text": {
+      "$description": "Text color tokens. All primary/secondary/accent pass WCAG AA on bg.base and bg.surface.",
+      "primary":   { "$value": "#E8F0FE", "$type": "color", "$extensions": { "contrast-bg-base": "14.1:1 AAA" } },
+      "secondary": { "$value": "#90A4C4", "$type": "color", "$extensions": { "contrast-bg-base": "5.1:1 AA" } },
+      "disabled":  { "$value": "#455A7A", "$type": "color", "$extensions": { "contrast-bg-base": "2.8:1 decorative-only" } },
+      "accent":    { "$value": "#00E5FF", "$type": "color", "$extensions": { "contrast-bg-base": "12.8:1 AAA" } },
+      "inverse":   { "$value": "#070D1A", "$type": "color" }
+    },
+
+    "border": {
+      "subtle":  { "$value": "rgba(144, 164, 196, 0.12)", "$type": "color" },
+      "default": { "$value": "rgba(144, 164, 196, 0.24)", "$type": "color" },
+      "strong":  { "$value": "rgba(144, 164, 196, 0.48)", "$type": "color" }
+    },
+
+    "accent": {
+      "$description": "Rescue Cyan accent family. Use for safe routes, positive UI states, general interactive highlights. NOT Sentinel Amber.",
+      "default": { "$value": "#00E5FF", "$type": "color" },
+      "dim":     { "$value": "#00B8D4", "$type": "color" },
+      "subtle":  { "$value": "rgba(0, 229, 255, 0.12)", "$type": "color" }
+    },
+
+    "interactive": {
+      "$description": "Orbital Blue interactive family. Secondary buttons, links, active tabs.",
+      "default": { "$value": "#1565C0", "$type": "color" },
+      "hover":   { "$value": "#1976D2", "$type": "color" }
+    },
+
+    "risk": {
+      "$description": "Hazard-specific risk layer tokens. Semantically locked — do not reuse for general UI. Each derives from scientific remote-sensing convention.",
+      "flood":          { "$value": "#1E88E5",                  "$type": "color", "$extensions": { "hazard": "SAR flood coverage" } },
+      "flood-dim":      { "$value": "rgba(30, 136, 229, 0.20)", "$type": "color" },
+      "fire":           { "$value": "#FFB300",                  "$type": "color", "$extensions": { "hazard": "thermal fire source" } },
+      "fire-dim":       { "$value": "rgba(255, 179, 0, 0.20)",  "$type": "color" },
+      "landslide":      { "$value": "#8D6E63",                  "$type": "color", "$extensions": { "hazard": "InSAR ground deformation" } },
+      "landslide-dim":  { "$value": "rgba(141, 110, 99, 0.20)", "$type": "color" },
+      "danger":         { "$value": "#E53935",                  "$type": "color", "$extensions": { "hazard": "total route block / CRITICAL" } },
+      "danger-dim":     { "$value": "rgba(229, 57, 53, 0.20)",  "$type": "color" }
+    },
+
+    "state": {
+      "$description": "System and route state tokens.",
+      "safe":         { "$value": "#00E5FF", "$type": "color" },
+      "safe-alt":     { "$value": "#00C853", "$type": "color" },
+      "safe-alt-dim": { "$value": "rgba(0, 200, 83, 0.15)",  "$type": "color" },
+      "warning":      { "$value": "#FFB300", "$type": "color" },
+      "warning-dim":  { "$value": "rgba(255, 179, 0, 0.15)", "$type": "color" },
+      "critical":     { "$value": "#E53935", "$type": "color" },
+      "critical-dim": { "$value": "rgba(229, 57, 53, 0.15)", "$type": "color" },
+      "nominal":      { "$value": "#00E5FF", "$type": "color" }
+    }
+  },
+
+  "font": {
+    "family": {
+      "display": { "$value": "'Rajdhani', 'Barlow Condensed', 'Arial Narrow', sans-serif", "$type": "fontFamily" },
+      "body":    { "$value": "'IBM Plex Sans', 'Inter', system-ui, -apple-system, sans-serif", "$type": "fontFamily" },
+      "mono":    { "$value": "'IBM Plex Mono', 'Roboto Mono', 'Courier New', monospace", "$type": "fontFamily" }
+    },
+    "weight": {
+      "regular":  { "$value": "400", "$type": "fontWeight" },
+      "medium":   { "$value": "500", "$type": "fontWeight" },
+      "semibold": { "$value": "600", "$type": "fontWeight" },
+      "bold":     { "$value": "700", "$type": "fontWeight" }
+    }
+  },
+
+  "text": {
+    "$description": "Type scale. Base: 1rem = 10px (html font-size: 62.5%).",
+    "2xs":  { "$value": "1.0rem", "$type": "dimension" },
+    "xs":   { "$value": "1.1rem", "$type": "dimension" },
+    "sm":   { "$value": "1.2rem", "$type": "dimension" },
+    "base": { "$value": "1.4rem", "$type": "dimension" },
+    "md":   { "$value": "1.6rem", "$type": "dimension" },
+    "lg":   { "$value": "1.8rem", "$type": "dimension" },
+    "xl":   { "$value": "2.0rem", "$type": "dimension" },
+    "2xl":  { "$value": "2.4rem", "$type": "dimension" },
+    "3xl":  { "$value": "3.2rem", "$type": "dimension" },
+    "4xl":  { "$value": "4.8rem", "$type": "dimension" },
+    "5xl":  { "$value": "6.4rem", "$type": "dimension" },
+    "6xl":  { "$value": "7.2rem", "$type": "dimension" }
+  },
+
+  "leading": {
+    "none":    { "$value": "1.0", "$type": "number" },
+    "tight":   { "$value": "1.2", "$type": "number" },
+    "snug":    { "$value": "1.4", "$type": "number" },
+    "normal":  { "$value": "1.6", "$type": "number" },
+    "relaxed": { "$value": "1.8", "$type": "number" }
+  },
+
+  "tracking": {
+    "tight":   { "$value": "-0.01em", "$type": "dimension" },
+    "normal":  { "$value": "0em",     "$type": "dimension" },
+    "wide":    { "$value": "0.05em",  "$type": "dimension" },
+    "wider":   { "$value": "0.10em",  "$type": "dimension" },
+    "widest":  { "$value": "0.15em",  "$type": "dimension" }
+  },
+
+  "space": {
+    "0":    { "$value": "0",       "$type": "dimension" },
+    "px":   { "$value": "0.1rem",  "$type": "dimension" },
+    "0-5":  { "$value": "0.2rem",  "$type": "dimension" },
+    "1":    { "$value": "0.4rem",  "$type": "dimension" },
+    "1-5":  { "$value": "0.6rem",  "$type": "dimension" },
+    "2":    { "$value": "0.8rem",  "$type": "dimension" },
+    "2-5":  { "$value": "1.0rem",  "$type": "dimension" },
+    "3":    { "$value": "1.2rem",  "$type": "dimension" },
+    "4":    { "$value": "1.6rem",  "$type": "dimension" },
+    "5":    { "$value": "2.0rem",  "$type": "dimension" },
+    "6":    { "$value": "2.4rem",  "$type": "dimension" },
+    "7":    { "$value": "2.8rem",  "$type": "dimension" },
+    "8":    { "$value": "3.2rem",  "$type": "dimension" },
+    "10":   { "$value": "4.0rem",  "$type": "dimension" },
+    "12":   { "$value": "4.8rem",  "$type": "dimension" },
+    "16":   { "$value": "6.4rem",  "$type": "dimension" },
+    "20":   { "$value": "8.0rem",  "$type": "dimension" },
+    "24":   { "$value": "9.6rem",  "$type": "dimension" }
+  },
+
+  "rounded": {
+    "none": { "$value": "0",       "$type": "dimension" },
+    "sm":   { "$value": "0.2rem",  "$type": "dimension" },
+    "base": { "$value": "0.4rem",  "$type": "dimension" },
+    "md":   { "$value": "0.6rem",  "$type": "dimension" },
+    "lg":   { "$value": "0.8rem",  "$type": "dimension" },
+    "xl":   { "$value": "1.2rem",  "$type": "dimension" },
+    "2xl":  { "$value": "1.6rem",  "$type": "dimension" },
+    "full": { "$value": "9999px",  "$type": "dimension" }
+  },
+
+  "shadow": {
+    "0":          { "$value": "none",                                         "$type": "shadow" },
+    "1":          { "$value": "0 1px 3px rgba(7, 13, 26, 0.60)",              "$type": "shadow" },
+    "2":          { "$value": "0 2px 8px rgba(7, 13, 26, 0.70)",              "$type": "shadow" },
+    "3":          { "$value": "0 4px 16px rgba(7, 13, 26, 0.80)",             "$type": "shadow" },
+    "4":          { "$value": "0 8px 32px rgba(7, 13, 26, 0.90)",             "$type": "shadow" },
+    "glow-cyan":  { "$value": "0 0 12px rgba(0, 229, 255, 0.30)",             "$type": "shadow" },
+    "glow-amber": { "$value": "0 0 12px rgba(255, 179, 0, 0.30)",             "$type": "shadow" },
+    "glow-red":   { "$value": "0 0 12px rgba(229, 57, 53, 0.30)",             "$type": "shadow" }
+  },
+
+  "duration": {
+    "instant": { "$value": "0ms",     "$type": "duration" },
+    "fast":    { "$value": "100ms",   "$type": "duration" },
+    "normal":  { "$value": "200ms",   "$type": "duration" },
+    "slow":    { "$value": "300ms",   "$type": "duration" },
+    "slower":  { "$value": "500ms",   "$type": "duration" },
+    "radar":   { "$value": "3000ms",  "$type": "duration" },
+    "pulse":   { "$value": "1500ms",  "$type": "duration" },
+    "route":   { "$value": "800ms",   "$type": "duration" }
+  },
+
+  "ease": {
+    "linear":  { "$value": "linear",                            "$type": "cubicBezier" },
+    "in":      { "$value": "cubic-bezier(0.4, 0, 1, 1)",        "$type": "cubicBezier" },
+    "out":     { "$value": "cubic-bezier(0, 0, 0.2, 1)",        "$type": "cubicBezier" },
+    "in-out":  { "$value": "cubic-bezier(0.4, 0, 0.2, 1)",      "$type": "cubicBezier" },
+    "spring":  { "$value": "cubic-bezier(0.34, 1.56, 0.64, 1)", "$type": "cubicBezier" },
+    "radar":   { "$value": "linear",                            "$type": "cubicBezier" },
+    "route":   { "$value": "cubic-bezier(0.4, 0, 0.2, 1)",      "$type": "cubicBezier" },
+    "pulse":   { "$value": "cubic-bezier(0, 0, 0.2, 1)",        "$type": "cubicBezier" }
+  }
+}
