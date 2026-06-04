@@ -8,6 +8,8 @@ dist/
 .env.local
 # Vanilla ship/ runtime secret (ORS key) — keep env.example.js, ignore env.js
 ship/env.js
+# Delivery zips may bundle env.js (with the ORS key) — never commit them
+*.zip
 *.log
 .DS_Store
 coverage/
